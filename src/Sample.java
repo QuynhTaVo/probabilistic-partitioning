@@ -744,7 +744,7 @@ public class Sample {
         }
     }
 
-    public static void test(String filepath){
+    /*public static void test(String filepath){
         HashMap<Pair<String>,Integer> countMap = new HashMap<>();
         HashMap<Pair<String>,HashMap<Long,Double>> map = new HashMap<>();
         //Long min = Long.MAX_VALUE,max = Long.MIN_VALUE,time;
@@ -769,11 +769,11 @@ public class Sample {
             });
 
             time.add(Long.parseLong(tempsplit[0]));
-            /*time = Long.parseLong(tempsplit[0]);
+            *//*time = Long.parseLong(tempsplit[0]);
             if(max < time)
                 max = time;
             if(min > time)
-                min = time;*/
+                min = time;*//*
         }
         //time = (max - min) / 600000 + 1;
 
@@ -794,6 +794,6 @@ public class Sample {
             else
                 System.out.print("0\t");
         }
-    }
+    }*/
 
 }
