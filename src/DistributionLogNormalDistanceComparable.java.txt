@@ -1,0 +1,43 @@
+import java.util.Collection;
+
+public class DistributionLogNormalDistanceComparable extends DistributionLogNormal implements Comparable{
+
+    double distance;
+
+    public DistributionLogNormalDistanceComparable(double mu, double sigmasquare, double distance) {
+        super(mu, sigmasquare);
+        this.distance = distance;
+    }
+
+    public DistributionLogNormalDistanceComparable(Collection<Double> array, double distance) {
+        super(array);
+        this.distance = distance;
+    }
+
+    public DistributionLogNormalDistanceComparable(Collection<Double> array, double size, double distance) {
+        super(array, size);
+        this.distance = distance;
+    }
+
+    public DistributionLogNormalDistanceComparable(DistributionLogNormal distributionLogNormal, double distance){
+        super(distributionLogNormal);
+        this.distance = distance;
+    }
+
+    public DistributionLogNormalDistanceComparable(DistributionLogNormalDistanceComparable logNormalDistributionDistanceComparable){
+        super(logNormalDistributionDistanceComparable);
+        this.distance = logNormalDistributionDistanceComparable.distance;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof DistributionLogNormalDistanceComparable)
+            return Double.compare(this.distance,((DistributionLogNormalDistanceComparable) o).distance);
+        return -1;
+    }
+
+    public static DistributionLogNormalDistanceComparable merge(DistributionLogNormalDistanceComparable logNormalDistributionDistanceComparable1, DistributionLogNormalDistanceComparable logNormalDistributionDistanceComparable2){
+        DistributionLogNormal distributionLogNormal = DistributionLogNormal.merge(logNormalDistributionDistanceComparable1, logNormalDistributionDistanceComparable2);
+        return new DistributionLogNormalDistanceComparable(distributionLogNormal.mu, distributionLogNormal.sigmasquare,(logNormalDistributionDistanceComparable1.distance + logNormalDistributionDistanceComparable2.distance) / 2);
+    }
+}
